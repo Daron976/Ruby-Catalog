@@ -12,4 +12,12 @@ class Item
     @publish_date = date
     @archived = archived
   end
+
+  private
+
+  def can_be_archived?
+  age = Time.now.year - @publish_date.year
+  age > 10
+  end
+
 end
