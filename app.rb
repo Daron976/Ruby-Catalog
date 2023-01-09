@@ -46,7 +46,7 @@ class App
     when 10
       puts 'Add a movie'
     when 11
-      puts Exit
+      Exit
     else
       'Wrong input!'
     end
