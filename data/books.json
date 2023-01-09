@@ -1,0 +1,16 @@
+[
+  {
+    "book_publisher": "Test",
+    "book_cover_state": "Bad",
+    "book_label_title": "LOTR",
+    "book_label_color": "Gray",
+    "book_publish_date": "12-12-1999"
+  },
+  {
+    "book_publisher": "test 2",
+    "book_cover_state": "good",
+    "book_label_title": "GoT",
+    "book_label_color": "black",
+    "book_publish_date": "11-11-2011"
+  }
+]
