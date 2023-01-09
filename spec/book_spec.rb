@@ -1,0 +1,19 @@
+require './book'
+
+describe Book do
+  before :each do
+    @book = Book.new('ITHAKI', 'Perfect', '11-11-2010')
+  end
+
+  it 'return cover-state condition' do
+    expect(@book.cover_state).to eq('Perfect')
+  end
+
+  it 'return false' do
+    expect(@book.archived).to be(false)
+  end
+
+  it 'return publish-date' do
+    expect(@book.publish_date).to eq('11-11-2010')
+  end
+end
