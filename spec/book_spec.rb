@@ -9,8 +9,8 @@ describe Book do
     expect(@book.cover_state).to eq('Perfect')
   end
 
-  it 'return false' do
-    expect(@book.archived).to be(false)
+  it 'return publisher' do
+    expect(@book.publisher).to eq('ITHAKI')
   end
 
   it 'return publish-date' do
