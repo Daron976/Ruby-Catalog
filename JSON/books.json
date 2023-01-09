@@ -1,0 +1,37 @@
+[
+  {
+    "publish_date": "2012-02-12",
+    "publisher": "Elsiever",
+    "cover_state": "Good",
+    "archived": false,
+    "id": 57
+  },
+  {
+    "publish_date": "2013-02-12",
+    "publisher": "Google",
+    "cover_state": "Exellent",
+    "archived": false,
+    "id": 26
+  },
+  {
+    "publish_date": "2020-04-10",
+    "publisher": "google",
+    "cover_state": "good",
+    "archived": false,
+    "id": 79
+  },
+  {
+    "publish_date": "2000-12-12",
+    "publisher": "Google",
+    "cover_state": "Good",
+    "archived": false,
+    "id": 2
+  },
+  {
+    "publish_date": "1111-11-11",
+    "publisher": "myangel",
+    "cover_state": "perfect",
+    "archived": false,
+    "id": 19
+  }
+]
