@@ -12,16 +12,16 @@ def options
   8 - Add a book
   9 - Add a music album
   10 - Add a movie\n
-  Enter - Exit
+  11 - Exit
   "
 end
 
 def entry_point
   puts ''
   puts "Welcome\n"
-  # app = App.new
-  # app.run
   options
+  app = App.new
+  app.select_input
 end
 
 entry_point
