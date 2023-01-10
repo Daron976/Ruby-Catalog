@@ -5,7 +5,6 @@ require_relative './author_module'
 module GameModule
   include DataStorage
   include GamesAuthor
-
   def add_game
     load_storage('games')
     puts 'Is this game multi player ? (Y/N)'
