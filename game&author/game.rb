@@ -17,6 +17,7 @@ class Game < Item
     item_age = Time.now.year - @publish_date.year
     since_played = Time.now.year - @last_played_at.year
     return true if item_age > 10 && since_played > 2
+
     false
   end
 end

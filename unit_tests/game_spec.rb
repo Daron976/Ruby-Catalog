@@ -17,8 +17,8 @@ describe Game do
     publish_date = Date.new(1990, 2, 3)
     new_game = Game.new('2020/01/12', publish_date, multiplayer: true)
 
-    truthy = new_game.can_be_archived?
+    bool = new_game.can_be_archived?
 
-    expect(truthy).to be true
+    expect(bool).to be true
   end
 end
