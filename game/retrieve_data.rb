@@ -1,7 +1,7 @@
 require 'json'
 require_relative 'create'
 
-module JsonRetrieve
+class JsonRetrieve
   def retrieve_games
     games = []
     game_data = File.open('./json_data/games.json')
@@ -12,5 +12,13 @@ module JsonRetrieve
     end
     file.close
     games
+  end
+
+  def retrieve_authors(item_arr)
+    authors = []
+    item_arr&.each do |item|
+      authors << item.author
+    end
+    authors
   end
 end
