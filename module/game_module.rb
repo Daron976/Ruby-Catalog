@@ -1,7 +1,7 @@
 require_relative './data_storage'
 require_relative '../class/game'
 require_relative './author_module'
-
+# rubocop:disable Metrics/MethodLength
 module GameModule
   include DataStorage
   include GamesAuthor
@@ -39,3 +39,4 @@ module GameModule
     end
   end
 end
+# rubocop:enable Metrics/MethodLength

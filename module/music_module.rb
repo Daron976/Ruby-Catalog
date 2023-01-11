@@ -1,7 +1,7 @@
 require 'json'
 require_relative '../class/music_album'
 require_relative '../class/genre'
-
+# rubocop:disable Metrics/MethodLength
 module MusicModule
   # Show List of All music
   def music_list
@@ -134,3 +134,4 @@ module WriteGenre
     File.write('./JSON/genre.json', JSON.pretty_generate(new_item))
   end
 end
+# rubocop:enable Metrics/MethodLength
