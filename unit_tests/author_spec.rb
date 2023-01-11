@@ -1,4 +1,4 @@
-require_relative '../game&author/author'
+require_relative '../game/author'
 
 describe Author do
   it 'inserted data should be equal to attributes' do
