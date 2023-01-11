@@ -4,11 +4,10 @@ require 'date'
 class Game < Item
   attr_accessor :last_played_at, :multiplayer
 
-  attr_reader :game_items, :name
+  attr_reader :game_items
 
-  def initialize(name, last_played_at, date, multiplayer: false)
+  def initialize(last_played_at, date, multiplayer: false)
     super(date)
-    @name = name
     @last_played_at = Date.parse(last_played_at)
     @multiplayer = multiplayer
     @game_items = []

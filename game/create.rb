@@ -1,19 +1,19 @@
 def create(item)
-  puts "Author / Artist first name:\n"
+  print 'Author / Artist / Creator first name : '
   first_name = gets.chomp
-  puts "Author / Artist last name:\n"
+  print 'Author / Artist / Creator last name : '
   last_name = gets.chomp
   new_author = Author.new(first_name, last_name)
   new_author.add_item(item)
 
-  puts "Label / Title\n"
+  print 'Label / Title : '
   label_title = gets.chomp
-  puts "Color:\n"
+  print 'Color : '
   color = gets.chomp
   new_label = Label.new(label_title, color)
   new_label.add_item(item)
 
-  puts "Genre:\n"
+  print 'Genre : '
   game_genre = gets.chomp
   new_genre = Genre.new(game_genre)
   new_genre.add_item(item)

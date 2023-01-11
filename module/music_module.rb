@@ -7,47 +7,46 @@ require_relative '../label'
 module MusicModule
   # Show List of All music
   def music_list
-    if @album.empty?
-      puts "<<< Music list empty >>>\n\n"
-      run
+    puts ''
+    if @albums.empty?
+      puts "<<< Music list empty >>>\n"
     else
-      puts 'list all music albums'
-      @album.each do |element|
-        puts "Label: #{element.label.title} Publish date: #{element.publish_date} On spotify: #{element.on_spotify}"
+      @albums.each do |element|
+        puts "[ Label: #{element.label.title} | On spotify: #{element.on_spotify} ]"
       end
     end
     select_input
   end
 
   def show_genres
-    if @genre.empty?
-      puts "<<< Genre list empty >>>\n\n"
-      run
+    puts ''
+    if @genres.empty?
+      puts "<<< Genre list empty >>>\n"
     else
-      puts 'Genres List'
-      @genre.each do |element|
-        puts "Id: #{element.id} Name: #{element.name}"
+      @genres.each do |element|
+        puts "[ Genre: #{element.name} ]"
       end
     end
+    select_input
   end
 
   # Add a new Music
   def add_a_music
-    puts 'Publish date: [DD-MM-YYYY]'
+    print 'Publish date [DD-MM-YYYY] : '
     publish_date = gets.chomp
 
-    puts 'on spotify [Y/N]:'
+    print 'on spotify [Y/N] : '
     on_spotify = gets.chomp.capitalize
 
     new_album = MusicAlbum.new(publish_date, on_spotify)
 
     create(new_album)
 
-    @album << new_album
+    @albums << new_album
 
     add_rel(new_album)
 
-    puts 'New music album added succesfully'
+    puts "New music album added succesfully\n"
     select_input
   end
 end
