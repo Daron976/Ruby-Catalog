@@ -1,8 +1,6 @@
 require 'json'
-require_relative '../class/music_album'
-require_relative '../class/genre'
-require_relative '../game/author'
-require_relative '../label'
+require_relative '../item/music_album'
+require_relative 'create'
 
 module MusicModule
   # Show List of All music
@@ -32,7 +30,8 @@ module MusicModule
 
   # Add a new Music
   def add_a_music
-    print 'Publish date [DD-MM-YYYY] : '
+    puts ''
+    print 'Publish date (DD-MM-YYYY) : '
     publish_date = gets.chomp
 
     print 'on spotify [Y/N] : '

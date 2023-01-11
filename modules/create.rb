@@ -1,3 +1,7 @@
+require_relative '../item/rel/author'
+require_relative '../item/rel/label'
+require_relative '../item/rel/genre'
+
 def create(item)
   print 'Author / Artist / Creator first name : '
   first_name = gets.chomp
@@ -17,6 +21,7 @@ def create(item)
   game_genre = gets.chomp
   new_genre = Genre.new(game_genre)
   new_genre.add_item(item)
+  puts ''
 end
 
 def create_on_retrieval(json_data, item)

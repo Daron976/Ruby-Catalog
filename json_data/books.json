@@ -1,3 +1,14 @@
 [
-
+  {
+    "id": 610,
+    "release": "23-12-2020",
+    "author_id": 952,
+    "fname": "sdfdf",
+    "lname": "sdfg",
+    "label_id": 177,
+    "title": "dsgdfg",
+    "color": "gdfg",
+    "genre_id": 866,
+    "genre": "dsg"
+  }
 ]

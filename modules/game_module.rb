@@ -1,12 +1,12 @@
-require_relative 'game'
-require_relative 'author'
+require_relative '../item/game'
 require_relative 'create'
 
 module GameModule
   def add_game
-    print 'Released date [DD-MM-YYYY] : '
+    puts ''
+    print 'Released date (DD-MM-YYYY) : '
     release = gets.chomp
-    print 'Last played [DD-MM-YYYY] : '
+    print 'Last played (DD-MM-YYYY) : '
     last_played = gets.chomp
     print 'Is this a multiplayer game [Y/N] : '
     mode = gets.chomp
@@ -37,9 +37,9 @@ module GameModule
 
   def list_authors
     puts ''
-    puts "There are no authors available\n" if @authors.empty?
+    puts 'There are no authors available' if @authors.empty?
     @authors.each do |obj|
-      puts "[ Name: #{obj.first_name} #{obj.first_name}]"
+      puts "[ Authors: #{obj.first_name} #{obj.first_name}]"
     end
     puts ''
     select_input
