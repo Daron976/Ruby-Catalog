@@ -1,3 +1,4 @@
+require_relative './game/json_data/game_module'
 require_relative './game/game_module'
 require_relative './module/music_module'
 
@@ -66,6 +67,44 @@ class App
     else
       'Wrong input!'
     end
+  end
+
+  def create_book
+    print 'Publisher:'
+    book_publisher = gets.chomp
+    print 'Cover State:'
+    book_cover_state = gets.chomp
+    print 'Label Title:'
+    book_label_title = gets.chomp
+    print 'Label Color:'
+    book_label_color = gets.chomp
+    print 'Publish Date(DD-MM-YYYY):'
+    book_publish_date = gets.chomp
+    mylabel = Label.new book_label_title, book_label_color
+    mybook = Book.new book_publisher, book_cover_state, book_publish_date
+
+    @all_books << mybook
+    @all_labels << Label
+
+    mylabel.add_item(mybook)
+    save_book(book_publisher, book_cover_state, book_label_title, book_label_color, book_publish_date)
+    puts 'Book saved.'
+  end
+
+  def list_books
+    puts 'No book records.' if @all_books.empty?
+    @all_books.each do |book|
+      puts "ID: #{book.id}"
+      puts "Publisher: #{book.publisher}"
+      puts "Cover State: #{book.cover_state}"
+      puts "Label: \'#{book.label.title}\', \'#{book.label.color}\'"
+      puts "Publish Date: #{book.publish_date}"
+    end
+  end
+
+  def list_labels
+    puts 'No label records.' if @all_labels.empty?
+    @all_labels.each { |label| puts "Id: \'#{label.id}\', Title: \'#{label.title}\', Color: \'#{label.color}\'" }
   end
   # rubocop:enable Metrics/CyclomaticComplexity
   # rubocop:enable Metrics/MethodLength
