@@ -8,6 +8,18 @@ class App
     @all_labels = []
   end
 
+  def run
+    load_preserve_data
+    until options
+      input = gets.chomp
+      if input == '11'
+        puts 'Good Bye!'
+        break
+      end
+      select_input
+    end
+  end
+
   def options
     puts "
     1 - List all book
@@ -106,6 +118,10 @@ class App
       puts "Publish date:#{book.publish_date}"
       puts
     end
+  end
+
+  def load_preserve_data
+    load_labels_books @all_books, @all_labels
   end
 
   def list_labels

@@ -12,5 +12,12 @@
     "book_label_title": "GoT",
     "book_label_color": "black",
     "book_publish_date": "11-11-2011"
+  },
+  {
+    "book_publisher": "CAN",
+    "book_cover_state": "Good",
+    "book_label_title": "LOTR",
+    "book_label_color": "Blue",
+    "book_publish_date": "12-12-1111"
   }
 ]

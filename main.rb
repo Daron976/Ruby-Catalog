@@ -4,7 +4,7 @@ def entry_point
   puts ''
   puts "Welcome\n"
   app = App.new
-  app.select_input
+  app.run
 end
 
 entry_point
