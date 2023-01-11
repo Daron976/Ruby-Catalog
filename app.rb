@@ -2,6 +2,7 @@ require_relative './modules/game_module'
 require_relative './modules/music_module'
 require_relative './modules/book_module'
 require_relative './preserve_data/save_data'
+require_relative './preserve_data/load_data'
 
 class App
   include GameModule
@@ -11,13 +12,13 @@ class App
   attr_reader :games, :authors
 
   def initialize
-    @games = []
+    @games = Load.new.load_game_data
+    @albums = Load.new.load_album_data
+    @books = Load.new.load_book_data
     @authors = []
-    @albums = []
-    @books = []
     @labels = []
     @genres = []
-    @container = { games: @games, albums: @albums, books: @books }
+    @container = [@games, @albums, @books]
   end
 
   def options
@@ -74,8 +75,16 @@ class App
   end
 
   def json_write
-    @container.each do |key, value|
-      preserve_data(key, value)
+    preserve_game('games', @games)
+    preserve_game('albums', @albums)
+    preserve_game('books', @books)
+  end
+
+  def on_start
+    @container.each do |arr|
+      arr.each do |item|
+        add_rel(item)
+      end
     end
   end
 end
