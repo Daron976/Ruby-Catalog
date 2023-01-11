@@ -1,29 +1,25 @@
 class Item
-  attr_accessor :genre, :author, :source, :label, :publish_date
+  attr_accessor :publish_date
 
-  attr_reader :id, :archived
+  attr_reader :id, :archived, :genre, :author, :label
 
-  def initialize(genre, author, source, label, date)
+  def initialize(date)
     @id = Random.rand(1...1000)
-    @genre = genre
-    @author = author
-    @source = source
-    @label = label
     @publish_date = date
     @archived = false
   end
 
-  def add_genre(genre)
+  def add_genre=(genre)
     @genre = genre
     genre.items << self unless genre.items.include?(self)
   end
 
-  def add_author(author)
+  def add_author=(author)
     @author = author
     author.items << self unless author.items.include?(self)
   end
 
-  def add_label(label)
+  def add_label=(label)
     @label = label
     label.items << self unless label.items.include?(self)
   end

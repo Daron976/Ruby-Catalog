@@ -2,11 +2,10 @@ require_relative '../book'
 require_relative '../label'
 require 'json'
 
-
 def load_label_and_books(mybook, mylabel)
   if File.exist?('./data/books.json')
     file = File.open('./data/books.json')
-    if file.size.zero?
+    if file.empty?
       mybook << []
       mylabel << []
     else
@@ -38,8 +37,9 @@ def save_book(book_publisher, book_cover_state, book_label_title, book_label_col
   }
 
   return unless File.exist?('./data/books.json')
+
   file = File.open('./data/books.json')
-  if file.size.zero?
+  if file.empty?
     book = [obj]
   else
     book = JSON.parse(File.read('./data/books.json'))

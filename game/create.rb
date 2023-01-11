@@ -1,20 +1,22 @@
 def create(item)
-  puts "What is the first name of the creator\n"
+  puts "Author / Artist first name:\n"
   first_name = gets.chomp
-  puts "What is the last name of the creator\n"
+  puts "Author / Artist last name:\n"
   last_name = gets.chomp
   new_author = Author.new(first_name, last_name)
   new_author.add_item(item)
-  puts "How did you acquire the game e.g. (Gift)\n"
+
+  puts "Label / Title\n"
   label_title = gets.chomp
-  puts "What is the color of the game\n"
+  puts "Color:\n"
   color = gets.chomp
   new_label = Label.new(label_title, color)
-  new_label.add_items(item)
-  puts "What is the genre of the game\n"
+  new_label.add_item(item)
+
+  puts "Genre:\n"
   game_genre = gets.chomp
   new_genre = Genre.new(game_genre)
-  new_genre.add_game(item)
+  new_genre.add_item(item)
 end
 
 def create_on_retrieval(json_data, item)

@@ -1,13 +1,18 @@
-require_relative './game&author/game_module'
+require_relative './game/game_module'
+require_relative './module/music_module'
 
 class App
-  include Game_and_author
+  include GameModule
+  include MusicModule
 
   attr_reader :games, :authors
 
   def initialize
     @games = []
     @authors = []
+    @album = []
+    @label = []
+    @genre = []
   end
 
   def options
@@ -39,7 +44,7 @@ class App
     when 1
       puts 'List of books:'
     when 2
-      puts 'List of albums:'
+      music_list
     when 3
       list_games
     when 4
@@ -53,7 +58,7 @@ class App
     when 8
       puts 'Add a book'
     when 9
-      puts 'Add a music album'
+      add_a_music
     when 10
       add_game
     when 11
@@ -64,4 +69,10 @@ class App
   end
   # rubocop:enable Metrics/CyclomaticComplexity
   # rubocop:enable Metrics/MethodLength
+
+  def add_rel(item)
+    @authors << item.author
+    @label << item.label
+    @genre << item.genre
+  end
 end

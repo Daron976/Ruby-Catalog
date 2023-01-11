@@ -2,7 +2,7 @@ require_relative 'game'
 require_relative 'author'
 require_relative 'create'
 
-module Game
+module GameModule
   def add_game
     puts "What is the name of the game\n"
     name = gets.chomp
@@ -22,6 +22,7 @@ module Game
     new_game = Game.new(name, last_played, release, multiplayer: mode)
     create(new_game)
     @games << new_game
+    add_rel(new_game)
     puts 'Game succesfully addded\n'
     select_input
   end

@@ -1,19 +1,22 @@
 require 'json'
 require_relative '../class/music_album'
 require_relative '../class/genre'
-# rubocop:disable Metrics/MethodLength
+require_relative '../game/author'
+require_relative '../label'
+
 module MusicModule
   # Show List of All music
   def music_list
-    if @music_album.empty?
+    if @album.empty?
       puts "<<< Music list empty >>>\n\n"
       run
     else
       puts 'list all music albums'
-      @music_album.each do |element|
-        puts "Id: #{element['id']} Publish date: #{element['publish_date']} On spotify: #{element['on_spotify']}"
+      @album.each do |element|
+        puts "Label: #{element.label.title} Publish date: #{element.publish_date} On spotify: #{element.on_spotify}"
       end
     end
+    select_input
   end
 
   def show_genres
@@ -23,7 +26,7 @@ module MusicModule
     else
       puts 'Genres List'
       @genre.each do |element|
-        puts "Id: #{element['id']} Name: #{element['name']}"
+        puts "Id: #{element.id} Name: #{element.name}"
       end
     end
   end
@@ -36,66 +39,22 @@ module MusicModule
     puts 'on spotify [Y/N]:'
     on_spotify = gets.chomp.capitalize
 
-    @new_album = MusicAlbum.new(publish_date, on_spotify)
-    @container = []
-    check_genre_list
+    new_album = MusicAlbum.new(publish_date, on_spotify)
+
+    create(new_album)
+
+    @album << new_album
+
+    add_rel(new_album)
 
     puts 'New music album added succesfully'
-  end
-
-  def check_genre_list
-    if @genre.empty?
-      add_genre
-    else
-      puts 'Select one of the genres from the list please'
-      show_genres
-      puts 'Add a new genre [0]'
-      user_select = gets.chomp.to_i
-      if user_select.zero?
-        add_genre
-      else
-        @genre.select { |element| @container << element if element['id'] == user_select }
-
-        @music_album << {
-          id: @new_album.id,
-          archived: @new_album.can_be_archived?,
-          publish_date: @new_album.publish_date,
-          on_spotify: @new_album.on_spotify,
-          genre: @container
-        }
-        add_new_music(@music_album)
-      end
-    end
-  end
-
-  def add_genre
-    puts 'Add a genre'
-    puts 'Genre Name:'
-    @name = gets.chomp.capitalize
-    new_genre = Genre.new(@name)
-    @container << {
-      id: Random.rand(1..100),
-      name: new_genre.name
-    }
-
-    @music_album << {
-      id: @new_album.id,
-      archived: @new_album.can_be_archived?,
-      publish_date: @new_album.publish_date,
-      on_spotify: @new_album.on_spotify,
-      genre: @container
-    }
-
-    @genre << @container[0]
-
-    add_new_music(@music_album)
-    add_new_genre(@genre)
+    select_input
   end
 end
 
 # READ JSON FILES <<<<
-# Music album
 module ReadMusic
+  # Music album
   def read_list
     if File.exist?('./JSON/music_album.json')
       list_of_music = File.open('./JSON/music_album.json')
@@ -105,10 +64,8 @@ module ReadMusic
       File.write('./JSON/music_album.json', [])
     end
   end
-end
 
-# Genre files
-module ReadGenre
+  # Genre files
   def read_genre
     if File.exist?('./JSON/genre.json')
       list_of_genre = File.open('./JSON/genre.json')
@@ -121,17 +78,14 @@ module ReadGenre
 end
 
 # WRITE JSON FILES <<<<
-# Music album
 module WriteMusic
+  # Music album
   def add_new_music(new_item)
     File.write('./JSON/music_album.json', JSON.pretty_generate(new_item))
   end
-end
 
-# Genre list
-module WriteGenre
+  # Genre list
   def add_new_genre(new_item)
     File.write('./JSON/genre.json', JSON.pretty_generate(new_item))
   end
 end
-# rubocop:enable Metrics/MethodLength
