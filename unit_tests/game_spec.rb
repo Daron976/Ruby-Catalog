@@ -1,21 +1,18 @@
-require_relative '../game/game'
-require 'date'
+require_relative '../item/game'
 
 describe Game do
   context 'with valid game data'
 
   it 'inserted data should be equal to attributes' do
-    publish_date = Date.new(1990, 2, 3)
-    new_game = Game.new('COD', '2021/01/12', publish_date, multiplayer: true)
+    new_game = Game.new('15-02-2012', '28-02-2010', multiplayer: true)
 
-    year = new_game.publish_date.year
+    year = new_game.last_played_at.year
 
-    expect(year).to eq 1990
+    expect(year).to eq 2012
   end
 
   it 'can_be_archived should return true' do
-    publish_date = Date.new(1990, 2, 3)
-    new_game = Game.new('COD', '2020/01/12', publish_date, multiplayer: true)
+    new_game = Game.new('15-02-2012', '03-02-1990', multiplayer: true)
 
     bool = new_game.can_be_archived?
 
