@@ -1,12 +1,12 @@
-require './class/music_album'
+require_relative '../item/music_album'
 
 describe 'Testing Music Album functions' do
   before(:each) do
-    @new_album = MusicAlbum.new('13-09-2022', 'y')
+    @new_album = Album.new('13-09-2022', 'y')
   end
 
   it 'Returns the instance of class' do
-    expect(@new_album).to be_instance_of MusicAlbum
+    expect(@new_album).to be_instance_of Album
   end
 
   it 'Returns the publish date' do

@@ -18,10 +18,15 @@ module GameModule
       mode = gets.chomp
     end
     new_game = Game.new(last_played, release, multiplayer: mode)
+
     create(new_game)
+
     @games << new_game
+
     add_rel(new_game)
+
     puts "Game succesfully addded\n"
+
     select_input
   end
 

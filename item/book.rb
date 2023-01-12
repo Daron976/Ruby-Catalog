@@ -3,10 +3,13 @@ require_relative 'item'
 class Book < Item
   attr_accessor :publisher, :cover_state
 
+  attr_reader :type
+
   def initialize(publisher, cover_state, date)
     super(date)
     @publisher = publisher
     @cover_state = cover_state
+    @type = 'Book'
   end
 
   def can_be_archived?

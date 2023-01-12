@@ -4,13 +4,14 @@ require 'date'
 class Game < Item
   attr_accessor :last_played_at, :multiplayer
 
-  attr_reader :game_items
+  attr_reader :game_items, :type
 
   def initialize(last_played_at, date, multiplayer: false)
     super(date)
     @last_played_at = Date.parse(last_played_at)
     @multiplayer = multiplayer
     @game_items = []
+    @type = 'Game'
   end
 
   def can_be_archived?

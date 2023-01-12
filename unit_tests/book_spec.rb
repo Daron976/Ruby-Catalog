@@ -1,5 +1,4 @@
-require './book'
-
+require_relative '../item/book'
 require 'date'
 
 describe Book do
@@ -15,6 +14,6 @@ describe Book do
   end
 
   it 'return publsh date' do
-    expect(@book.publish_date).to eq('10-01-2010')
+    expect(@book.publish_date).to eq(Date.parse('10-01-2010'))
   end
 end

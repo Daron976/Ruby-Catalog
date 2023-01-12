@@ -3,6 +3,8 @@ require_relative './modules/music_module'
 require_relative './modules/book_module'
 require_relative './preserve_data/save_data'
 require_relative './preserve_data/load_data'
+require_relative './item/book'
+require_relative './item/music_album'
 
 class App
   include GameModule
@@ -18,7 +20,7 @@ class App
     @authors = []
     @labels = []
     @genres = []
-    @container = [@games, @albums, @books]
+    @container = { games: @games, albums: @albums, books: @books }
   end
 
   def options
@@ -58,7 +60,8 @@ class App
     when 10
       json_write
       puts ''
-      puts "Goodbye\n"
+      puts 'Goodbye'
+      puts ''
       exit
     else
       puts "Wrong input!\n"
@@ -69,20 +72,23 @@ class App
   # rubocop:enable Metrics/CyclomaticComplexity
 
   def add_rel(item)
-    @authors << item.author
     @labels << item.label
-    @genres << item.genre
+    if item.instance_of?(Book)
+      @authors << item.author
+    elsif item.instance_of?(MusicAlbum)
+      @genres << item.genre
+    end
   end
 
   def json_write
-    preserve_game('games', @games)
-    preserve_game('albums', @albums)
-    preserve_game('books', @books)
+    @container.each do |key, val|
+      preserve_data(key, val)
+    end
   end
 
   def on_start
-    @container.each do |arr|
-      arr.each do |item|
+    @container.each_value do |val|
+      val.each do |item|
         add_rel(item)
       end
     end

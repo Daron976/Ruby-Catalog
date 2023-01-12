@@ -27,7 +27,7 @@ module BookModule
     puts ''
     puts 'No book records.' if @books.empty?
     @books.each do |book|
-      puts "[ Label: #{book.label.title} | Publisher: #{book.publisher} | Cover State: #{book.cover_state} ]"
+      puts "[ Title: #{book.label.title} | Publisher: #{book.publisher} | Cover State: #{book.cover_state} ]"
     end
     select_input
   end
