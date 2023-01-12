@@ -11,8 +11,6 @@ class App
   include MusicModule
   include BookModule
 
-  attr_reader :games, :authors
-
   def initialize
     @games = Load.new.load_game_data
     @albums = Load.new.load_album_data
@@ -75,7 +73,7 @@ class App
     @labels << item.label
     if item.instance_of?(Book)
       @authors << item.author
-    elsif item.instance_of?(MusicAlbum)
+    elsif item.instance_of?(Album)
       @genres << item.genre
     end
   end

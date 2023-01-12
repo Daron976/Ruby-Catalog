@@ -18,7 +18,7 @@ def preserve_data(file_name, data_arr)
                         author_id: obj.author.id, fname: obj.author.first_name, lname: obj.author.last_name
                       })
     when 'Game' then new_hash.merge!({ activity: obj.last_played_at, multiplayer: obj.multiplayer })
-    when 'Music' then new_hash.merge!({ on_spotify: obj.on_spotify, genre_id: obj.genre.id, genre: obj.genre.name })
+    when 'Album' then new_hash.merge!({ on_spotify: obj.on_spotify, genre_id: obj.genre.id, genre: obj.genre.name })
     end
     write_data << new_hash
   end

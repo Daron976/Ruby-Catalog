@@ -3,7 +3,7 @@ require 'date'
 
 describe Book do
   before :each do
-    @book = Book.new('Ithaki', 'good', '10-01-2010')
+    @book = Book.new('Ithaki', 'good', '2010-01-10')
   end
   it 'return item' do
     @book.should be_an_instance_of Book

@@ -20,7 +20,7 @@ def create(item)
     last_name = gets.chomp
     new_author = Author.new(first_name, last_name)
     new_author.add_item(item)
-  elsif item.instance_of?(MusicAlbum)
+  elsif item.instance_of?(Album)
     print 'Genre : '
     game_genre = gets.chomp
     new_genre = Genre.new(game_genre)
@@ -37,7 +37,7 @@ def create_on_retrieval(json_data, item)
     new_author = Author.new(json_data['fname'], json_data['lname'])
     new_author.id = json_data['author_id']
     new_author.add_item(item)
-  elsif item.instance_of?(MusicAlbum)
+  elsif item.instance_of?(Album)
     new_genre = Genre.new(json_data['genre'])
     new_genre.id = json_data['genre_id']
     new_genre.add_item(item)

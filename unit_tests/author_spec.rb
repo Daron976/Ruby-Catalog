@@ -11,7 +11,7 @@ describe Author do
 
   it 'items array should be populated' do
     new_author = Author.new('Jim', 'Jones')
-    item = Item.new('2020/12/15')
+    item = Item.new('2020-12-15')
     new_author.add_item(item)
 
     item_array = new_author.items

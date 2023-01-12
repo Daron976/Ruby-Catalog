@@ -31,7 +31,7 @@ module MusicModule
   # Add a new Music
   def add_a_music
     puts ''
-    print 'Publish date (DD-MM-YYYY) : '
+    print 'Publish date (YYYY-MM-DD) : '
     publish_date = gets.chomp
 
     print 'on spotify [Y/N] : '

@@ -8,7 +8,7 @@ module BookModule
     book_publisher = gets.chomp
     print 'Cover State : '
     book_cover_state = gets.chomp
-    print 'Publish Date(DD-MM-YYYY) : '
+    print 'Publish Date (YYYY-MM-DD) : '
     book_publish_date = gets.chomp
     mybook = Book.new book_publisher, book_cover_state, book_publish_date
 
