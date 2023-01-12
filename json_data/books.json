@@ -1,3 +1,14 @@
 [
-
+  {
+    "id": 270,
+    "release": "2011-01-10",
+    "label_id": 938,
+    "title": "Test Book",
+    "color": "Brown",
+    "publisher": "Test publisher",
+    "cover_state": "Perfect",
+    "author_id": 894,
+    "fname": "John",
+    "lname": "DOe"
+  }
 ]
