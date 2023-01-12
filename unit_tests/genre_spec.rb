@@ -1,4 +1,4 @@
-require '../item/rel/genre'
+require_relative '../item/rel/genre'
 
 describe 'Testing Music Album functions' do
   before(:each) do

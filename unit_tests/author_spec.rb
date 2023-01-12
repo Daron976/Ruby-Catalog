@@ -1,4 +1,4 @@
-require '../item/rel/author'
+require_relative '../item/rel/author'
 
 describe Author do
   it 'inserted data should be equal to attributes' do
