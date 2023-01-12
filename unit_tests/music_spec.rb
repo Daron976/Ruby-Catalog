@@ -1,4 +1,4 @@
-require_relative '../item/music_album'
+require '../item/music_album'
 
 describe 'Testing Music Album functions' do
   before(:each) do

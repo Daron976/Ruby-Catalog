@@ -1,4 +1,4 @@
-require_relative '../item/game'
+require '../item/game'
 
 describe Game do
   context 'with valid game data'

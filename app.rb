@@ -1,10 +1,10 @@
-require_relative './modules/game_module'
-require_relative './modules/music_module'
-require_relative './modules/book_module'
-require_relative './preserve_data/save_data'
-require_relative './preserve_data/load_data'
-require_relative './item/book'
-require_relative './item/music_album'
+require './modules/game_module'
+require './modules/music_module'
+require './modules/book_module'
+require './preserve_data/save_data'
+require './preserve_data/load_data'
+require './item/book'
+require './item/music_album'
 
 class App
   include GameModule
